@@ -42,7 +42,7 @@ data_path = "/dein/pfad/zu/den/nc/dateien/"
 
 - Python 
 - Jupyter Notebooks 📓
-- NetCDF4 / xarray (probably)
+- NetCDF4
 - Matplotlib / Plotly for viz
 
 ## Usage
