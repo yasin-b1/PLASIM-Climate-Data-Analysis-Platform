@@ -1,6 +1,6 @@
 # Juniorakademie_25
 
-> **Elite-tier climate data analysis** | Built different 
+> **Climate data analysis** 
 
 ## What is this?
 
