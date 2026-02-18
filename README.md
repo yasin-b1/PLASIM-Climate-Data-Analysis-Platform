@@ -76,13 +76,13 @@ In each Jupyter notebook, update the `data_path` variable:
 
 ```python
 # Configuration: Update this path to match your local data directory
-data_path = "/path/to/your/netcdf/data/"
+filepath = "/path/to/your/netcdf/data/"
 
 # Example for Windows users
-# data_path = "C:/Users/YourName/Documents/ClimateData/"
+# filepath = "C:/Users/YourName/Documents/ClimateData/"
 
 # Example for Unix/Linux/macOS users
-# data_path = "/home/username/data/climate/"
+# filepath = "/home/username/data/climate/"
 ```
 
 ## Usage
@@ -162,10 +162,6 @@ Contributions are welcome! Please follow these guidelines:
 3. **Commit** your changes (`git commit -m 'Add AmazingFeature'`)
 4. **Push** to the branch (`git push origin feature/AmazingFeature`)
 5. **Open** a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
