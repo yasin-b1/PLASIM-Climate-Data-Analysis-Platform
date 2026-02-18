@@ -1,6 +1,6 @@
 # PLASIM Climate Data Analysis Platform
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform)
+[![Status](https://img.shields.io/badge/status-inactive-red.svg)](https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 ## Overview
