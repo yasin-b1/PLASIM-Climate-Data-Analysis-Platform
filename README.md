@@ -133,6 +133,7 @@ time = dataset.variables['time'][:]
 ```
 PLASIM-Climate-Data-Analysis-Platform/
 ├── Bilder/                          # Output visualizations and figures
+├── Data/                            # Needs to be createt by yourself and filled with the .nc files created locally from PLASIM
 ├── NetCDF4_data_handling.ipynb      # Main analysis notebook
 ├── README.md                        # Project documentation
 └── requirements.txt                 # Python dependencies
