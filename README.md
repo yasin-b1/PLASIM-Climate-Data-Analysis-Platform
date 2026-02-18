@@ -2,8 +2,6 @@
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yasin-b1/Juniorakademie_25)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
 ## Overview
 
 A high-performance climate data visualization and analysis pipeline designed for processing NetCDF climate datasets. This platform provides comprehensive tools for scientific data exploration, statistical analysis, and publication-ready visualizations.
