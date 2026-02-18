@@ -1,10 +1,11 @@
 # PLASIM Climate Data Analysis Platform
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yasin-b1/Juniorakademie_25)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
 ## Overview
 
-A high-performance climate data visualization and analysis pipeline designed for processing NetCDF climate datasets. This platform provides comprehensive tools for scientific data exploration, statistical analysis, and publication-ready visualizations.
+A high-performance climate data visualization and analysis pipeline designed for processing NetCDF climate datasets from PLASIM (Planet Simulator). This platform provides comprehensive tools for scientific data exploration, statistical analysis, and publication-ready visualizations.
 
 ## Table of Contents
 
@@ -22,8 +23,10 @@ A high-performance climate data visualization and analysis pipeline designed for
 ## Features
 
 - **NetCDF Data Processing**: Robust handling of Network Common Data Form (NetCDF) climate datasets
-- **Advanced Visualization**: Interactive and static plotting capabilities using Matplotlib and Plotly
-- **Statistical Analysis**: Comprehensive climate data analytics and trend analysis
+- **Advanced Visualization**: Interactive and static plotting capabilities using Matplotlib
+- **Geospatial Mapping**: Cartographic visualizations with Cartopy for climate data
+- **Statistical Analysis**: Comprehensive climate data analytics and trend analysis with SciPy and Statsmodels
+- **Xarray Integration**: Powerful N-dimensional labeled arrays and datasets handling
 - **Jupyter Integration**: Ready-to-use Jupyter notebooks for reproducible research
 - **Scalable Architecture**: Optimized for large-scale climate dataset processing
 
@@ -41,8 +44,8 @@ Before you begin, ensure you have met the following requirements:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yasin-b1/Juniorakademie_25.git
-cd Juniorakademie_25
+git clone https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform.git
+cd PLASIM-Climate-Data-Analysis-Platform
 ```
 
 ### 2. Install Dependencies
@@ -63,7 +66,7 @@ pip install -r requirements.txt --upgrade
 
 ⚠️ **Important**: NetCDF data files are not included in this repository and must be configured locally.
 
-1. **Obtain NetCDF Files**: Ensure you have access to the required `.nc` climate data files
+1. **Obtain NetCDF Files**: Ensure you have access to the required `.nc` climate data files from PLASIM simulations
 2. **Create Data Directory**: Organize your data files in a dedicated directory
 3. **Update File Paths**: Modify the data path configuration in the Jupyter notebooks
 
@@ -106,23 +109,29 @@ data_path = "/path/to/your/netcdf/data/"
 ```python
 # 1. Load climate data
 import netCDF4 as nc
+import xarray as xr
+
+# Using netCDF4
 dataset = nc.Dataset(data_path + 'your_climate_file.nc')
+
+# Or using xarray (recommended)
+ds = xr.open_dataset(data_path + 'your_climate_file.nc')
 
 # 2. Extract variables
 temperature = dataset.variables['temperature'][:]
 time = dataset.variables['time'][:]
 
-# 3. Perform analysis
+# 3. Perform statistical analysis
 # ... (see notebooks for detailed examples)
 
-# 4. Generate visualizations
+# 4. Generate visualizations with cartopy
 # ... (visualization code)
 ```
 
 ## Project Structure
 
 ```
-Juniorakademie_25/
+PLASIM-Climate-Data-Analysis-Platform/
 ├── Bilder/                          # Output visualizations and figures
 ├── NetCDF4_data_handling.ipynb      # Main analysis notebook
 ├── README.md                        # Project documentation
@@ -131,13 +140,18 @@ Juniorakademie_25/
 
 ## Technology Stack
 
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Core Language** | Python 3.8+ | Primary development language |
-| **Data Processing** | NetCDF4, NumPy, Pandas | Climate data manipulation |
-| **Visualization** | Matplotlib, Plotly | Static and interactive plotting |
-| **Environment** | Jupyter Notebook | Interactive development |
-| **Version Control** | Git | Source code management |
+| Component | Technology | Version | Purpose |
+|-----------|-----------|---------|---------|
+| **Core Language** | Python | 3.8+ | Primary development language |
+| **Data Processing** | NetCDF4 | ≥1.6.0 | NetCDF file handling |
+| **Data Processing** | NumPy | ≥1.21.0 | Numerical computing |
+| **Data Processing** | Xarray | ≥0.19.0 | N-dimensional labeled arrays |
+| **Visualization** | Matplotlib | ≥3.4.0 | Static plotting |
+| **Visualization** | Cartopy | ≥0.20.0 | Geospatial data visualization |
+| **Statistical Analysis** | SciPy | ≥1.7.0 | Scientific computing |
+| **Statistical Analysis** | Statsmodels | ≥0.13.0 | Statistical modeling |
+| **Environment** | Jupyter Notebook | ≥6.4.0 | Interactive development |
+| **Version Control** | Git | - | Source code management |
 
 ## Contributing
 
@@ -157,14 +171,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Project Maintainer**: [@yasin-b1](https://github.com/yasin-b1)
 
-**Project Link**: [https://github.com/yasin-b1/Juniorakademie_25](https://github.com/yasin-b1/Juniorakademie_25)
+**Project Link**: [https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform](https://github.com/yasin-b1/PLASIM-Climate-Data-Analysis-Platform)
 
 ---
 
 <div align="center">
 
-**Juniorakademie 2025** | Climate Science Through Data
+**PLASIM Climate Data Analysis Platform** | Advanced Climate Science Through Data
 
-*Transforming climate data into actionable insights*
+*Transforming climate simulation data into actionable insights*
 
 </div>
