@@ -22,7 +22,8 @@ from scipy.signal import welch, periodogram
 from scipy.optimize import curve_fit
 
 #  Plotters
-import standert_deviation_map
+import plotters.standart_deviation_map
+import plotters.global_map_mean
 
 #define dictionary for easy data access later on
 
@@ -90,58 +91,6 @@ def zonal_mean(nc_data, var_name, last_timepoints):
 def zonal_mean_time(nc_data, var_name, last_timepoints):
     return np.ma.average(zonal_mean(nc_data, var_name, last_timepoints), axis=0)
 
-""""
-def plot_global_map(nc_data, var_name, time_index=-1, cmap='coolwarm'):
-    data = nc_data.variables[var_name][time_index]
-    lons = nc_data.variables['lon'][:]
-    lats = nc_data.variables['lat'][:]
-    
-    fig = plt.figure(figsize=(12, 5))
-    ax = plt.axes(projection=ccrs.PlateCarree())
-    ax.coastlines()
-    ax.add_feature(cfeature.BORDERS)
-    ax.gridlines(draw_labels=True)
-
-    mesh = ax.contourf(lons, lats, data, 60, transform=ccrs.PlateCarree(),
-    #                   levels=np.linspace(190, 310, part),
-                       cmap=cmap)
-    plt.colorbar(mesh, orientation='horizontal', label=f'{var_name}')
-    plt.title(f'Global Map: {var_name} at time index {time_index}')
-    plt.show()
-"""
-
-def plot_global_map_mean(nc_data, var_name, cmap='coolwarm'):
-    data = nc_data.variables[var_name][:].mean(axis=0)  # Mean over all time steps
-    lons = nc_data.variables['lon'][:]
-    lats = nc_data.variables['lat'][:]
-    
-    fig = plt.figure(figsize=(12, 5))
-    ax = plt.axes(projection=ccrs.PlateCarree())
-    ax.coastlines()
-    ax.add_feature(cfeature.BORDERS)
-    ax.gridlines(draw_labels=True)
-
-    mesh = ax.contourf(lons, lats, data, 60, transform=ccrs.PlateCarree(),
-                       levels=np.linspace(-230, 0, 100),
-                       cmap=cmap)
-    plt.colorbar(mesh, orientation='horizontal', label=f'{var_name}')
-    plt.title(f'Global Map: {var_name} mean over all time steps')
-    plt.show()
-
-
-
-
-# Example
-parameter = 'hfls'  
-
-#plot_global_map(Data_Daily['280'], parameter, time_index=0)  
-#plot_global_map(Data_Daily['1150'], parameter, time_index=0)
-plot_global_map_mean(Data_Daily['280'], parameter)
-plot_global_map_mean(Data_Daily['350'], parameter)
-plot_global_map_mean(Data_Daily['450'], parameter)
-plot_global_map_mean(Data_Daily['650'], parameter)
-plot_global_map_mean(Data_Daily['850'], parameter)
-plot_global_map_mean(Data_Daily['1150'], parameter)
 
 # Hovmöller Plot (Latitude vs Time, Zonal Mean)
 
