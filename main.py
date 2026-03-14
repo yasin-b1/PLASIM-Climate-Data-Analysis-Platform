@@ -22,8 +22,9 @@ from scipy.signal import welch, periodogram
 from scipy.optimize import curve_fit
 
 #  Plotters
-import plotters.standart_deviation_map
-import plotters.global_map_mean
+import plotters.standart_deviation_map as std
+import plotters.global_map_mean as global_mean
+import plotters.hovmoller_lat_time as hov
 
 #define dictionary for easy data access later on
 
@@ -85,29 +86,8 @@ def convertPrec(precArray):
     """
     return precArray *(360*24*60*60)
 
-def zonal_mean(nc_data, var_name, last_timepoints):
-    return np.ma.average(nc_data.variables[var_name][-last_timepoints:], axis=2)
-
 def zonal_mean_time(nc_data, var_name, last_timepoints):
     return np.ma.average(zonal_mean(nc_data, var_name, last_timepoints), axis=0)
-
-
-# Hovmöller Plot (Latitude vs Time, Zonal Mean)
-
-def hovmoller_lat_time(nc_data, var_name, last_timepoints):
-    data = zonal_mean(nc_data, var_name, last_timepoints)
-    lat = nc_data.variables['lat'][:]
-    
-    plt.figure(figsize=(10, 5))
-    plt.contourf(np.arange(data.shape[0]), lat, data.T, cmap='viridis')
-    plt.xlabel('Time Step')
-    plt.ylabel('Latitude')
-    plt.title(f'Hovmöller Diagram: {var_name} (Zonal Mean)')
-    plt.colorbar(label=var_name)
-    plt.show()
-
-# Example
-hovmoller_lat_time(Data_Daily['280'], 'tas', 3600)
 
 
 # Plot Global Map at a Single Time Step (e.g., time[0])
